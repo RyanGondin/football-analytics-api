@@ -1,7 +1,7 @@
 // src/providers/footballdata.ts
 import type {
   FootballProvider, Match, PlayerStats, Standing, Team,
-} from "./index";
+} from "./index.js";
 
 const BASE_URL = "https://api.football-data.org/v4";
 
@@ -48,7 +48,7 @@ export class FootballDataProvider implements FootballProvider {
   private readonly headers: Record<string, string>;
 
   constructor() {
-    const key = process.env.FOOTBALL_DATA_KEY;
+    const key = process.env["FOOTBALL_DATA_KEY"];
     if (!key) throw new Error("Missing env var: FOOTBALL_DATA_KEY");
     this.headers = { "X-Auth-Token": key };
   }

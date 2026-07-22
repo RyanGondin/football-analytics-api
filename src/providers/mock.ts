@@ -3,7 +3,7 @@
 // Returns realistic-looking hardcoded data so you can build
 // and test UI without any API key.
 
-import type { FootballProvider, Match, PlayerStats, Standing, Team } from "./index";
+import type { FootballProvider, Match, PlayerStats, Standing, Team } from "./index.js";
 
 const TEAMS: Team[] = [
   { id: "1",  name: "Sporting CP",        shortName: "Sporting",  logoUrl: "" },
@@ -15,11 +15,11 @@ const TEAMS: Team[] = [
 ];
 
 const MATCHES: Match[] = [
-  { id: "m1", homeTeam: TEAMS[0], awayTeam: TEAMS[1], homeScore: 2, awayScore: 1, status: "finished", minute: null,  date: "2025-04-12T20:00:00Z", leagueId: "94" },
-  { id: "m2", homeTeam: TEAMS[2], awayTeam: TEAMS[3], homeScore: 1, awayScore: 1, status: "finished", minute: null,  date: "2025-04-13T17:30:00Z", leagueId: "94" },
-  { id: "m3", homeTeam: TEAMS[1], awayTeam: TEAMS[2], homeScore: 0, awayScore: 1, status: "live",     minute: 67,    date: "2025-04-19T20:00:00Z", leagueId: "94" },
-  { id: "m4", homeTeam: TEAMS[0], awayTeam: TEAMS[4], homeScore: null, awayScore: null, status: "scheduled", minute: null, date: "2025-04-26T20:00:00Z", leagueId: "94" },
-  { id: "m5", homeTeam: TEAMS[3], awayTeam: TEAMS[5], homeScore: null, awayScore: null, status: "scheduled", minute: null, date: "2025-04-27T17:30:00Z", leagueId: "94" },
+  { id: "m1", homeTeam: TEAMS[0]!, awayTeam: TEAMS[1]!, homeScore: 2, awayScore: 1, status: "finished", minute: null,  date: "2025-04-12T20:00:00Z", leagueId: "94" },
+  { id: "m2", homeTeam: TEAMS[2]!, awayTeam: TEAMS[3]!, homeScore: 1, awayScore: 1, status: "finished", minute: null,  date: "2025-04-13T17:30:00Z", leagueId: "94" },
+  { id: "m3", homeTeam: TEAMS[1]!, awayTeam: TEAMS[2]!, homeScore: 0, awayScore: 1, status: "live",     minute: 67,    date: "2025-04-19T20:00:00Z", leagueId: "94" },
+  { id: "m4", homeTeam: TEAMS[0]!, awayTeam: TEAMS[4]!, homeScore: null, awayScore: null, status: "scheduled", minute: null, date: "2025-04-26T20:00:00Z", leagueId: "94" },
+  { id: "m5", homeTeam: TEAMS[3]!, awayTeam: TEAMS[5]!, homeScore: null, awayScore: null, status: "scheduled", minute: null, date: "2025-04-27T17:30:00Z", leagueId: "94" },
 ];
 
 const STANDINGS: Standing[] = TEAMS.map((team, i) => ({

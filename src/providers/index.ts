@@ -1,4 +1,4 @@
-// src/providers/index.ts
+
 
 export interface Match {
   id: string;
@@ -64,18 +64,18 @@ export interface FootballProvider {
 
 // Factory — set PROVIDER env var to switch adapters
 export async function createProvider(): Promise<FootballProvider> {
-  const name = process.env.PROVIDER ?? "mock";
+  const name = process.env["PROVIDER"] ?? "mock";
 
   if (name === "apifootball") {
-    const { APIFootballProvider } = await import("./apifootball");
+    const { APIFootballProvider } = await import("./apifootball.js");
     return new APIFootballProvider();
   }
   if (name === "footballdata") {
-    const { FootballDataProvider } = await import("./footballdata");
+    const { FootballDataProvider } = await import("./footballdata.js");
     return new FootballDataProvider();
   }
 
   // Default: mock provider for local dev (no API key needed)
-  const { MockProvider } = await import("./mock");
+  const { MockProvider } = await import("./mock.js");
   return new MockProvider();
 }
