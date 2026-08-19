@@ -1,4 +1,3 @@
-// src/services/matchService.ts
 import { createProvider } from "../providers/index.js";
 import type { FootballProvider, Match } from "../providers/index.js";
 

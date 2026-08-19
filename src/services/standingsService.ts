@@ -5,7 +5,7 @@ export class StandingsService {
   private provider: FootballProvider | null = null;
   private cache = new Map<string, { data: Standing[]; expiresAt: number }>();
 
-  private readonly STANDINGS_TTL = 10 * 60 * 1000; // 10 minutes
+  private readonly STANDINGS_TTL = 10 * 60 * 1000;
 
   private async getProvider(): Promise<FootballProvider> {
     if (!this.provider) this.provider = await createProvider();

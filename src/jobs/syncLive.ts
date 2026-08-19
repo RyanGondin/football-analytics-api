@@ -38,7 +38,6 @@ async function syncLive() {
 }
 
 export function startSyncLive() {
-  // Wait 30s before first call to avoid colliding with syncFixtures on startup
   setTimeout(() => {
     cron.schedule("*/2 * * * *", syncLive);
     console.log("[syncLive] Scheduled — every 2 minutes");

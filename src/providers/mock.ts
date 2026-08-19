@@ -1,8 +1,3 @@
-// src/providers/mock.ts
-// Used automatically when PROVIDER env var is not set.
-// Returns realistic-looking hardcoded data so you can build
-// and test UI without any API key.
-
 import type { FootballProvider, Match, PlayerStats, Standing, Team } from "./index.js";
 
 const TEAMS: Team[] = [

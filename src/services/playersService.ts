@@ -8,7 +8,7 @@ export class PlayersService {
     { data: PlayerStats | null; expiresAt: number }
   >();
 
-  private readonly STATS_TTL = 10 * 60 * 1000; // 10 minutes
+  private readonly STATS_TTL = 10 * 60 * 1000;
 
   private async getProvider(): Promise<FootballProvider> {
     if (!this.provider) this.provider = await createProvider();

@@ -53,7 +53,6 @@ export interface Standing {
   points: number;
 }
 
-// The contract every provider adapter must satisfy
 export interface FootballProvider {
   getFixtures(leagueId: string, season: string): Promise<Match[]>;
   getLiveMatches(leagueId: string): Promise<Match[]>;
@@ -62,7 +61,6 @@ export interface FootballProvider {
   getStandings(leagueId: string, season: string): Promise<Standing[]>;
 }
 
-// Factory — set PROVIDER env var to switch adapters
 export async function createProvider(): Promise<FootballProvider> {
   const name = process.env["PROVIDER"] ?? "mock";
 
@@ -75,7 +73,6 @@ export async function createProvider(): Promise<FootballProvider> {
     return new FootballDataProvider();
   }
 
-  // Default: mock provider for local dev (no API key needed)
   const { MockProvider } = await import("./mock.js");
   return new MockProvider();
 }

@@ -8,8 +8,6 @@ import type {
 
 const BASE_URL = "https://v3.football.api-sports.io";
 
-// api-football returns deeply nested objects — these types
-// represent only the fields we actually use
 interface RawFixture {
   fixture: {
     id: number;
@@ -100,8 +98,6 @@ export class APIFootballProvider implements FootballProvider {
       results: number;
     };
 
-    // Remove the console.log that was here
-
     if (json.errors && Object.keys(json.errors).length > 0) {
       throw new Error(`API-Football API error: ${JSON.stringify(json.errors)}`);
     }
@@ -182,7 +178,7 @@ export class APIFootballProvider implements FootballProvider {
     });
 
     if (!raw.length) return null;
-    const s = raw[0]?.statistics[0]; // first club's stats for that season
+    const s = raw[0]?.statistics[0];
     if (!s) return null;
 
     return {
@@ -195,12 +191,11 @@ export class APIFootballProvider implements FootballProvider {
       yellowCards: s.cards.yellow,
       redCards: s.cards.red,
       passAccuracy: s.passes.accuracy,
-      xG: null, // api-football free tier doesn't include xG
+      xG: null,
     };
   }
 
   async getStandings(leagueId: string, season: string): Promise<Standing[]> {
-    // Response shape: [ [ [ {rank, team, all, points} ] ] ]
     const raw = await this.get<Array<Array<Array<RawStanding>>>>("/standings", {
       league: leagueId,
       season,

@@ -1,11 +1,9 @@
-// src/providers/footballdata.ts
 import type {
   FootballProvider, Match, PlayerStats, Standing, Team,
 } from "./index.js";
 
 const BASE_URL = "https://api.football-data.org/v4";
 
-// football-data.org raw shapes (only fields we use)
 interface RawMatch {
   id:           number;
   utcDate:      string;
@@ -121,8 +119,6 @@ export class FootballDataProvider implements FootballProvider {
   }
 
   async getPlayerStats(_playerId: string, _season: string): Promise<PlayerStats | null> {
-    // football-data.org free tier does not expose player stats.
-    // Swap to APIFootballProvider or a paid plan for this feature.
     console.warn("FootballDataProvider: getPlayerStats() is not available on the free tier.");
     return null;
   }
